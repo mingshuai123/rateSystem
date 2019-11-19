@@ -1,0 +1,198 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+}
+
+#app {
+  height: 100%;
+  // height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+// main-container global css
+// .app-container {
+//   padding: 20px;
+// }
+.el-scrollbar__wrap {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.avatar-uploader{
+  display: inline-block;
+  .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+} 
+.el-select-dropdown__list{
+  margin-bottom:10px;
+}
+//返回上一页
+.netnavheader{
+  width: 100%;
+  height: 46px;
+  display: block;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 46px;
+  padding: 0 10px;
+  background-image: url("//static.iasac.org.cn/ratingPC/images/common/icon-left.png");
+  background-size: 18px 18px                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+  box-shadow: 0 2px 3px 1px rgba(128, 128, 128, 0.75);
+}
+.navheader {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  box-shadow: 0 2px 3px 1px rgba(128, 128, 128, 0.75);
+  color: #1d2b69;
+  font-size: 14px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  .item{
+    width: 80px;
+    height: 26px;
+    line-height: 27px;
+    border-radius: 5px;
+    margin: 0 16px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .item.active{
+    background-color: #c0e8ff;
+    border-bottom: 1px solid rgba(256,256,256,.6);
+    box-shadow: 0 2px 5px 1px rgba(128, 128, 128, 0.75);
+  }
+}
+.starinfo{
+  display: flex;
+  align-items: center;
+  height: 18px;
+  .star_icon{
+    width: 18px;
+    height: 18px;
+    margin: 2px;
+    background-image:url("//static.iasac.org.cn/ratingPC/images/detail/icon-starbig.png") ;
+    background-size: 18px 18px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .num{
+    margin: 0 10px;
+    color: #d5b520;
+  }
+}
+.nodata{
+  width: 100%;
+  line-height: 30px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 18px;
+  color: #868686;
+  text-align: center;
+}
+.divider{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 30px 0;
+  color: #868686;
+  &::after,&::before{
+    content: '';
+    flex: 1;
+    height: 1px;
+    margin: 0 30px;
+    border-top: 1px solid #e5e5e5;
+  }
+}
+.border-shadow{box-shadow: 1px 2px 3px 1px rgba(128, 128, 128, 0.75);}
+.border-shadow2{box-shadow: 2px 3px 3px 0 rgba(236, 236, 236, 0.75);}
+.el-tabs--border-card{border: none;box-shadow:none}
+.el-tabs--border-card>.el-tabs__content{
+  padding: 0;
+}
+.avatar-uploader .avatar-uploader-icon{
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+}

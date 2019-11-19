@@ -1,0 +1,1781 @@
+//网吧详情页
+
+@mixin flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detailPage{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  background-color: #f2f2f2;
+  .rightBox{
+    width: 100%;
+    height: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    //网咖信息
+    .showBox{
+      padding-top: 15px;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      .leftitem{
+        padding: 0 26px;
+        .picbox{
+          width: 484px;
+          height: 288px;
+          margin: 0 auto;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+          .gallery-top {
+            height: 100%;
+            width: 100%;
+          }
+          .gallery-thumbs {
+            display: none;
+            height: 54px;
+            box-sizing: border-box;
+            padding: 5px 0;
+            .swiper-slide {
+              width: 25%;
+              height: 100%;
+              opacity: 0.4;
+            }
+            .swiper-slide-active {
+              opacity: 1;
+            }
+          }
+        }
+        .infobox{
+          width: 484px;
+          padding: 20px;
+          background-color: #ffffff;
+          .header{
+            height: 24px;
+            display: flex;
+            align-items: flex-end;
+            .name{
+              flex: 1;
+              font-size: 18px;
+              font-weight: normal;
+              font-stretch: normal;
+              line-height: 24px;
+              letter-spacing: 0px;
+              color: #1d2b69;
+            }
+            .btnicon{
+              width: 20px;
+              height: 16px;
+              background-repeat: no-repeat;
+              background-position: center center;
+              margin: 0 5px;
+              cursor: pointer;
+            }
+            .icon-sc{
+              background-image: url("//static.iasac.org.cn/ratingPC/images/detail/icon-sc.png");
+              background-size: 20px 18px;
+            }
+            .icon-jb{
+              background-image: url("//static.iasac.org.cn/ratingPC/images/detail/icon-jb.png");
+              background-size: 20px 16px;
+            }
+          }
+          .priceinfo2{
+            margin: 10px auto;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            .starinfo{
+              display: flex;
+              align-items: center;
+              height: 10px;
+              .star_icon{
+                width: 10px;
+                height: 10px;
+                margin: 2px;
+                background-image:url("//static.iasac.org.cn/ratingPC/images/detail/icon-starsmall.png") ;
+                background-size: 10px 10px;
+                background-position: center center;
+                background-repeat: no-repeat;
+              }
+            }
+            .nostar {
+              // width: 100%;
+              text-align: center;
+              font-size: 14px;
+              color: #f86246;
+              line-height: 18px;
+            }
+            .btn-join{
+              margin-left: 10px;
+              font-size: 14px;
+              font-weight: normal;
+              letter-spacing: 0px;
+              color: #00b4ff;
+              text-decoration:underline;
+              cursor: pointer;
+            }
+          }
+          .desc{
+            line-height: 20px;
+            letter-spacing: 0px;
+            color: #333333;
+            font-size: 12px;
+          }
+        }
+        .serverinfo{
+          width: 484px;
+          height: 94px;
+          margin: 20px auto;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          .title{
+            width: 86px;
+            height: 60px;
+            margin-right: 20px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-image: url("//static.iasac.org.cn/ratingPC/images/detail/cspz.png");
+            background-size: 73px 20px;
+          }
+          .serverList{
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            .serveritem{
+              //width: 98px;
+              height: 30px;
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+              margin-right: 10px;
+              color: #333333;
+              .name{
+                line-height: 16px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow:ellipsis;
+              }
+              .icon{
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+                img{
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+          }
+        }
+        .activity{
+          width: 484px;
+          height: 100px;
+          background-color: #ffffff;
+          border-radius: 5px;
+          padding: 20px;
+          .item {
+            width: 450px;
+            height: 20px;
+            line-height: 20px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            color: #333333;
+            overflow: hidden;
+            .activityicon{
+              font-size: 12px;
+              padding: 5px;
+              background-image: linear-gradient(90deg, #fb745b 0%, #f05731 50%, #991713 100%), linear-gradient(#fb684b, #fb684b);
+              border-radius: 5px;
+              color: #ffffff;
+              margin-right: 6px;
+            }
+          }
+        }
+      }
+      .rightitem{
+        width: 484px;
+        margin: 0 auto;
+        height: 100%;
+        .commentBoxs{
+          height: 675px;
+          background-color: #ffffff;
+          border-radius: 5px;
+          .nav1{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            .item{
+              width: 85px;
+              //line-height: 40px;
+              color: #333333;
+              cursor: pointer;
+              display: flex;
+              flex-flow: column;
+              align-items: center;
+            }
+            .item.active{
+              color: #097aff;
+            }
+            .item.active:after{
+              content: "";
+              width: 60px;
+              height: 1px;
+              border-bottom: 2px solid #097aff;
+              display: block;
+              margin: 0 auto;
+            }
+          }
+          .activityScroll{
+            width: 100%;
+            margin: 0 auto;
+            height: 630px;
+            overflow-y:auto ; 
+            .activity{
+              padding: 20px;
+              border-bottom: 2px solid #e5e5e5;
+              .name{
+                line-height: 30px;
+                display: flex;
+                justify-content: space-between;
+                color: #5074af;
+                font-weight: bold;
+                .date{
+                  font-size: 12px;
+                  font-weight: normal;
+                  color: #868686;
+                }
+              }
+              .img{
+                max-width: 100%;
+                max-height: 230px;
+                width: auto;
+                margin: 0 auto;
+                overflow: hidden;
+                background-color: #000;
+                img{
+                  display: block;
+                  width: auto;
+                  max-height: 230px;
+                  margin: 0 auto;
+                }
+              }
+              .info{
+                padding: 20px 0 10px 0;
+                font-size: 16px;
+                color: #868686;
+              }
+            }
+            
+          }
+          .activityScroll::-webkit-scrollbar {display:none}
+          .commentbox{
+            width: 100%;
+            margin: 0 auto;
+            .commentheader{
+              margin: 0 auto;
+              background-color: #f6f6f6;
+              border: solid 1px #eeeeee;
+              padding: 10px;
+              .title{
+                font-size: 16px;
+                font-weight: bold;
+                padding: 5px;
+                color: #5074af;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                line-height: 20px;
+                .num {
+                  font-size: 14px;
+                  color: #868686;
+                }
+                .add{
+                  text-align: center;
+                  cursor: pointer;
+                }
+              }
+              .scoreinfo{
+                display: flex;
+                line-height: 30px;
+                padding: 10px 10px;
+                .scoreitem{
+                  flex: 1;
+                  display: flex;
+                  align-items: center;
+                  font-size: 12px;
+                  .name{
+                    color: #759bd8;
+                  }
+                  .lg-bg{
+                    margin:0 5px;
+                    width: 50px;
+                    height: 6px;
+                    background-color: rgb(229,229,229);
+                    .scoreline{
+                      height: 6px;
+                      background-image: linear-gradient(90deg,#097aff 0%, #6bccff 100%), linear-gradient(#d61212,#d61212);
+                    }
+                  }
+                }
+              }
+            }
+            .commentbox-scroll{
+              height: 520px;
+              overflow-y: auto;
+              .commentList{
+                padding: 10px 5px 20px 5px;
+                .commentitem{
+                  width: 100%;
+                  display: block;
+                  color: #333;
+                  padding: 20px;
+                  // border-bottom:1px solid #eeeeee ;
+                  background:#e5e5e5 ;
+                  margin: 5px auto;
+                  .commentheader2{
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    .avatar{
+                      width: 40px;
+                      height: 40px;
+                      border-radius:50%;
+                      overflow: hidden;
+                      //border: 1px solid #e5e5e5;
+                      img{
+                        width: 40px;
+                        height: 40px;
+                      }
+                    }
+                    .info{
+                      flex: 1;
+                      max-width: 300px;
+                      margin: 0 10px;
+                      .name{
+                        font-size: 14px;
+                        color: #333333;
+                      }
+                      .date{
+                        font-size: 12px;
+                        color: #9f9f9f;
+                      }
+                    }
+                    .starinfo{
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      height: 13px;
+                      .star_icon{
+                        width: 13px;
+                        height: 13px;
+                        margin: 2px;
+                        background-image:url("//static.iasac.org.cn/ratingPC/images/detail/icon-starbig.png") ;
+                        background-size: 13px 13px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                      }
+                    }
+                  }
+                  .textbox{
+                    max-width: 500px;
+                    line-height: 30px;
+                    font-size: 14px;
+                    //white-space: nowrap;
+                    //overflow: hidden;
+                    //text-overflow:ellipsis;
+                  }
+                  .imgbox{
+                    display: flex;
+                    flex-wrap: wrap;
+                    .imgitem{
+                      width: 100px;
+                      height: 100px;
+                      border: 1px solid #e5e5e5;
+                      margin: 0 5px;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      img{
+                        width: 100px;
+                        height: auto;
+                        max-height: 100px;
+                      }
+                    }
+                  }
+                }
+              }
+              
+            }
+            .commentbox-scroll::-webkit-scrollbar {display:none}
+          }
+          .netmenu {
+            padding: 10px 20px;
+            text-align: center;
+            overflow: hidden;
+            overflow-y: auto;
+            .title{
+              margin: 10px auto;
+              font-weight: bold;
+              color: #5074af;
+              text-align: left;
+            }
+            .border-top{
+              border-top: 1px solid #e5e5e5;
+              margin: 30px 0;
+            }
+            .menuitem2{
+              display: flex;
+              align-items: center;
+              height: 30px;
+              font-size: 16px;
+              .menuicon5{
+                width: 5px;
+                height: 5px;
+                margin: 5px;
+                margin-right: 10px;
+                border-radius: 50%;
+                background-color: #5074af;
+              }
+              .name{
+                color: #759bd8;
+                font-weight: bold;
+              }
+              .info{
+                color: #868686;
+              }
+            }
+            .menuList1{
+              display: flex;
+              align-items: center;
+              .menuitem{
+                height: 65px;
+                text-align: center;
+                font-size: 12px;
+                margin: 0 10px;
+                .name{
+                  line-height: 30px;
+                }
+                .menuicon{
+                  width: 73px;
+                  height: 46px;
+                  line-height: 46px;
+                  font-size: 16px;
+                  text-align: center;
+                  background-color: #fb745b;
+                  color: #fff;
+                  border-radius: 10px;
+                  background-repeat: no-repeat;
+                  background-size: 73px 46px;
+                  background-position: center center;
+                }
+                .menuicon1{
+                  background-image: url("//static.iasac.org.cn/ratingPC/images/detail/dt.png");
+                }
+                .menuicon2{
+                  background-image: url("//static.iasac.org.cn/ratingPC/images/detail/kz.png");
+                }
+                .menuicon3{
+                  background-image: url("//static.iasac.org.cn/ratingPC/images/detail/hf.png");
+                }
+                .menuicon4{
+                  background-image: url("//static.iasac.org.cn/ratingPC/images/detail/vip.png");
+                }
+              }
+            }
+  
+          }
+        }
+        
+      }
+    }
+    //有奖问卷
+    .questionBox{
+      background-color: #ffffff;
+      height: 100%;
+      .header{
+          height: 100px;
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          line-height: 30px;
+          background-color: #f2f2f2;
+          text-align: center;
+          color: #1d2b69;
+        }
+      .main{
+        padding: 20px;
+        .main-list {
+          width: 600px;
+          margin: 0 auto;
+          position: relative;
+          .problemList {
+            float: left;
+            .subject {
+              margin: 0 auto;
+              color: #1d2b69;
+              text-align: center;
+              .questions {
+                font-size: 16px;
+                line-height: 60px;
+              }
+              p {
+                font-size: 15px;
+                margin: 6px 15px;
+                line-height: 24px;
+              }
+            }
+
+          }
+        }
+      }
+      .option {
+        ul{
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            margin: 10px;
+            position: relative;
+            display: inline-flex;
+            font-size: 18px;
+            .on {
+              background-color: #44b1c9;
+              color: #fff;
+              border: 2px solid #44b1c9;
+              span {
+                background-color: #44b1c9;
+                color: #fff;
+                border: 2px solid #44b1c9;
+              }
+            }
+            span {
+              text-align: center;
+              border-radius: 3px;
+              border: 2px solid #edf6ff;
+              background-color: #edf6ff;
+              color: #1d2b69;
+              font-size: 18px;
+              padding: 6px 20px;
+              width: 150px;
+              height: 110px;
+              @include flex-center;
+            }
+          }
+        }
+
+      }
+      .btn-groups {
+        width: 100%;
+        height: 60px;
+        position: relative;
+        .submit {
+          display: block;
+          float: left;
+          background-color: #44b1c9;
+          color: #fff;
+          width: 120px;
+          font-size: 14px;
+          padding: 10px 0;
+          text-align: center;
+          border-radius: 3px;
+          margin: 10px 40px;
+          cursor: pointer;
+        }
+        .submit:active {
+          background: rgba(68, 177, 201, .5);
+        }
+        .prev {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+        .next, .save {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+        }
+      }
+      .btn-groups-height {
+        height: 60px;
+      }
+      input[type='checkbox'] {
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: checkbox;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+      }
+      input[type='radio'] {
+        width: 100%;
+        height: 100%;
+        -webkit-appearance: radio;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+      }
+      input[type='checkbox']:checked + span, input[type='radio']:checked + span {
+        background-color: #fe8e78;
+        color: #fff;
+        border: 2px solid #fe8e78;
+      }
+
+      /*动画*/
+      .slide-enter, .slide_back-enter {
+        position: absolute;
+        width: 100%;
+      }
+      .slide-leave, .slide_back-leave {
+        position: absolute;
+        width: 100%;
+      }
+      .slide-enter-active, .slide_back-enter-active {
+        transition: all 0.3s linear;
+      }
+      .slide-leave-active {
+        position: absolute;
+        transition: all 0.3s linear;
+        transform: translate(-100%);
+      }
+      .slide-enter {
+        transform: translateX(100%);
+      }
+      .slide_back-leave-active {
+        position: absolute;
+        transition: all 0.3s linear;
+        transform: translate(100%);
+      }
+      .slide_back-enter {
+        transform: translateX(-100%);
+      }
+    }
+    //积分商城
+    .creditsBox {
+      width: 100%;
+      .creditsheader{
+        width: 100%;
+        height: 80px;
+        background-color: #f6f6f6;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        .name{
+          font-size: 18px;
+          color: #1d2b69;
+          margin-right: 10px;
+        }
+        .icon-change{
+          width: 54px;
+          height: 22px;
+          background-image:url("//static.iasac.org.cn/ratingPC/images/detail/qh.png") ;
+          background-size: 54px 22px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          cursor: pointer;
+        }
+        .mycredits{
+          flex: 1;
+          text-align: right;
+          padding-right: 10px;
+          color: #1d2b69;
+          font-size: 14px;
+        }
+        .detail{
+          width: 94px;
+          height: 26px;
+          text-align: center;
+          line-height: 26px;
+          cursor: pointer;
+          color: #ffffff;
+          background-image: linear-gradient(0deg,#6bccff 0%, #6bb8ff 50%, #6bccff 100%),
+          linear-gradient(#ffffff, #ffffff);
+          box-shadow: 1px 2px 5px 0px
+          rgba(107, 184, 255, 0.75);
+          border-radius: 10px;
+          border: solid 1px #ffffff;
+        }
+      }
+      .shopList{
+        width: 100%;
+        width: 1019px;
+        height: 550px;
+        overflow-y: auto;
+        padding: 20px 10px;
+        margin: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #ffffff;
+        .item{
+          width: 240px;
+          height: 200px;
+          padding: 5px;
+          margin:  5px 4px;
+          border: solid 1px #eeeeee;
+          background-color: #ffffff;
+          box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+          .itemimg{
+            width: 220px;
+            height: 120px;
+            margin: 0 auto;
+            img{
+              width: 220px;
+              height: 120px;
+            }
+          }
+          .name{
+            height: 30px;
+            line-height: 30px;
+            color: #1d2b69;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+          }
+          .price{
+            height: 40px;
+            line-height: 40px;
+            color: #d5b520;
+            font-size: 18px;
+          }
+        }
+      }
+      .shopList::-webkit-scrollbar{display: none}
+    }
+    //商品详情
+    .creditsDetail{
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      background-color: #ffffff;
+      padding:0 20px;
+      .creditsheader{
+        width: 100%;
+        height: 46px;
+        display: block;
+        border-bottom: 1px solid #eeeeee;
+        color: #000000;
+        line-height: 46px;
+        background-image: url("//static.iasac.org.cn/ratingPC/images/common/icon-left.png");
+        background-size: 18px 18px                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
+        background-position: 10px center;
+        background-repeat: no-repeat;
+        padding-left: 30px;
+      }
+      .shopinfo{
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        .info{
+          flex: 1;
+          height: 134px;
+          border-bottom: 1px solid #eeeeee;
+          display: flex;
+          align-items: center;
+          img{
+            width: 160px;
+            height: 103px;
+            margin: 10px;
+          }
+          .desc{
+            line-height: 65px;
+            color: #1d2b69;
+            font-size: 18px;
+            span{
+              color: #fb674a;
+            }
+          }
+        }
+        .btn-buy{
+          display: block;
+          width: 136px;
+          height: 38px;
+          border: solid 1px #0b7cff;
+          color: #097aff;
+          font-size: 20px;
+          line-height: 38px;
+          text-align: center;
+          cursor: pointer;
+        }
+        .btn-buy:active{
+          background-image: linear-gradient(0deg, #007bff 0%, #00d8f1 100%), linear-gradient(#ffffff, #ffffff);
+         //background-color: #007bff;
+          border: solid 1px #0b7cff;
+          color: #ffffff;
+        }
+      }
+      .info2{
+        width: 95%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #eeeeee;
+        margin: 0 auto;
+        color: #5074af;
+        .icon{
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+          background-position: center center;
+          margin: 10px;
+        }
+        .icon.icon-date{
+          background-image: url("//static.iasac.org.cn/ratingPC/images/detail/date.png");
+        }
+        .icon.icon-position{
+          background-image: url("//static.iasac.org.cn/ratingPC/images/detail/position.png");
+        }
+        span{
+          color: #1d2b69;
+        }
+
+      }
+      .descbox{
+        width: 95%;
+        height: 250px;
+        border-bottom: 1px solid #eeeeee;
+        margin: 0 auto;
+        color: #5074af;
+        line-height: 30px;
+        .title{
+          font-size: 18px;
+          line-height: 50px;
+        }
+      }
+    }
+  }
+
+}
+
+//积分兑换
+.creditsPage{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: #ffffff;
+  overflow: hidden;
+  .rightBox{
+    width: 100%;
+    padding: 10px;
+    overflow-y: auto;
+    .creditsheader{
+      width: 100%;
+      height: 80px;
+      background-color: #f6f6f6;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      .name{
+        font-size: 18px;
+        color: #1d2b69;
+        margin-right: 10px;
+      }
+      .icon-change{
+        width: 54px;
+        height: 22px;
+        background-image:url("//static.iasac.org.cn/ratingPC/images/detail/qh.png") ;
+        background-size: 54px 22px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+      .mycredits{
+        flex: 1;
+        text-align: right;
+        padding-right: 10px;
+      }
+      .detail{
+        width: 94px;
+        height: 26px;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 26px;
+        border: solid 1px #097aff;
+        cursor: pointer;
+      }
+    }
+    .shopList{
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .item{
+        width: 190px;
+        height: 164px;
+        padding: 5px;
+        margin: 10px;
+        border: solid 1px #eeeeee;
+        background-color: #ffffff;
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+        .itemimg{
+          width: 172px;
+          height: 93px;
+          margin: 0 auto;
+          img{
+            width: 172px;
+            height: 93px;
+          }
+        }
+        .name{
+          height: 30px;
+          line-height: 30px;
+          color: #333333;
+          font-size: 14px;
+          overflow: hidden;
+          text-overflow:ellipsis;
+          white-space: nowrap;
+        }
+        .price{
+          height: 40px;
+          line-height: 40px;
+          color: #fb745b;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+}
+
+//评级共公示
+.netbarListPage{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  background-color: #ffffff;
+  .rightBox{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    margin: 10px;
+    .nav{
+       width: 100%;
+       height: 70px;
+       display: flex;
+      justify-content: center;
+      align-items: center;
+     .item{
+       height: 40px;
+       color: #333333;
+       cursor: pointer;
+        margin-right: 40px;
+     }
+     .item.active{
+       color: #097aff;
+     }
+     .item.active:after{
+       content: "";
+       width: 60px;
+       height: 2px;
+       background-color:  #097aff;
+       display: block;
+       margin: 2px auto;
+     }
+     }
+    .nearly{
+      width: 100%;
+      .item{
+        background-color: #f6f6f6;
+        height: 122px;
+        margin: 5px 10px ;
+        display: flex;
+        padding: 10px;
+        .itemimg{
+          width: 160px;
+          height: 102px;
+          margin-right: 20px;
+          img{
+            width: 160px;
+            height: 102px;
+          }
+        }
+        .info{
+          color: #1d2b69;
+          .name{
+            height: 60px;
+            line-height: 60px;
+            font-size: 20px;
+          }
+          .state{
+            display: flex;
+            height: 42px;
+            align-items: center;
+            .stateicon{
+              width: 80px;
+              height: 26px;
+              line-height: 26px;
+              text-align: center;
+              border-radius: 10px;
+              border: solid 1px #0b7cff;
+              color: #097aff;
+              margin: 10px;
+            }
+            .date{
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.questionPage{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  background-color: #ffffff;
+  .rightBox {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    margin: 10px;
+    .content {
+      padding: 20px;
+      background-color: #a2c9d8;
+      .header{
+        height: 100px;
+        margin: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 30px;
+        background-color: #f6f6f6;
+        text-align: center;
+
+      }
+    }
+    .main-list {
+      position: relative;
+    }
+    .problemList {
+      float: left;
+    }
+    .subject {
+      margin: 20px 30px;
+      color: #1d2b69;
+      h3 {
+        font-size: 16px;
+      }
+      p {
+        font-size: 15px;
+        margin: 6px 15px;
+        line-height: 24px;
+      }
+    }
+    .option {
+      margin: 6px 15px;
+      ul{
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          margin: 6px 20px 10px;
+          position: relative;
+          display: inline-flex;
+          font-size: 18px;
+          .on {
+            background-color: #44b1c9;
+            color: #fff;
+            border: 2px solid #44b1c9;
+            span {
+              background-color: #44b1c9;
+              color: #fff;
+              border: 2px solid #44b1c9;
+            }
+          }
+          span {
+            text-align: center;
+            border-radius: 10px;
+            border: 2px solid #edf6ff;
+            background-color: #edf6ff;
+            color: #1d2b69;
+            font-size: 14px;
+            padding: 6px 30px;
+            width: 150px;
+            height: 110px;
+            @include flex-center;
+          }
+        }
+      }
+
+    }
+    .btn-groups {
+      width: 100%;
+      height: 60px;
+      background-color: rgba(162, 201, 216, .8);
+      position: relative;
+      .submit {
+        display: block;
+        float: left;
+        background-color: #44b1c9;
+        color: #fff;
+        width: 120px;
+        font-size: 14px;
+        padding: 10px 0;
+        text-align: center;
+        border-radius: 3px;
+        margin: 10px 40px;
+      }
+      .submit:active {
+        background: rgba(68, 177, 201, .5);
+      }
+      .prev {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      .next, .save {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+    }
+    .btn-groups-height {
+      height: 60px;
+    }
+
+    input[type='checkbox'] {
+      width: 100%;
+      height: 100%;
+      -webkit-appearance: checkbox;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+    }
+    input[type='radio'] {
+      width: 100%;
+      height: 100%;
+      -webkit-appearance: radio;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+    }
+    input[type='checkbox']:checked + span, input[type='radio']:checked + span {
+      background-color: #fe8e78;
+      color: #fff;
+      border: 2px solid #fe8e78;
+    }
+
+    /*动画*/
+    .slide-enter, .slide_back-enter {
+      position: absolute;
+      width: 100%;
+    }
+    .slide-leave, .slide_back-leave {
+      position: absolute;
+      width: 100%;
+    }
+    .slide-enter-active, .slide_back-enter-active {
+      transition: all 0.3s linear;
+    }
+    .slide-leave-active {
+      position: absolute;
+      transition: all 0.3s linear;
+      transform: translate(-100%);
+    }
+    .slide-enter {
+      transform: translateX(100%);
+    }
+    .slide_back-leave-active {
+      position: absolute;
+      transition: all 0.3s linear;
+      transform: translate(100%);
+    }
+    .slide_back-enter {
+      transform: translateX(-100%);
+    }
+  }
+}
+//个人页面
+.profilePage{
+  width: 100%;
+  height: 720px;
+  overflow: hidden;
+  display: flex;
+  background-color: #ffffff;
+  .rightBox{
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    background-image: url("//static.iasac.org.cn/ratingPC/images/profile/bg-profile.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    .profileheader {
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      .avatar{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .name{
+        line-height: 50px;
+        font-size: 16px;
+        color: #1d2b69;
+      }
+      .credits{
+        display: block;
+        cursor: pointer;
+        color: #ffffff;
+        width: 130px;
+        height: 26px;
+        line-height: 26px;
+        background-image: linear-gradient(0deg,
+                #6bb8ff 23%,
+                #6bccff 100%),
+        linear-gradient(
+                        #1d2b69,
+                        #1d2b69);
+        background-blend-mode: normal,
+        normal;
+        box-shadow: 2px 3px 5px 0px
+        rgba(113, 113, 113, 0.75);
+        border-radius: 13px;
+        span{
+          font-size: 14px;
+        }
+      }
+    }
+    .btnBox{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 104px;
+        height: 104px;
+        border: 1px solid #097aff;
+        border-radius: 10px ;
+        cursor: pointer;
+        margin: 10px;
+        color: #1d2b69;
+        .icon{
+          width: 30px;
+          height: 30px;
+          img{
+            width: 30px;
+            height: 30px;
+          }
+        }
+        .name{
+          line-height: 40px;
+        }
+      }
+      .item.color{
+        border: 1px solid #868686;
+        color: #868686;
+
+      }
+    }
+    .nologin{
+      text-align: center;
+      margin: 200px auto;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}
+.subpagePage{
+  width: 100%;
+  height: 701px;
+  overflow: hidden;
+  display: flex;
+  background-color: #ffffff;
+  .rightBox{
+    width: 100%;
+    height: 100%;
+    background-image: url("//static.iasac.org.cn/ratingPC/images/common/bg-profile.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    //副标题
+    .subpageHeader{
+      color: #1d2b69;
+      font-size: 16px;
+      width: 100%;
+      height: 58px;
+      background-color: #f2f2f2;
+      opacity: 0.8;
+      padding:0 20px;
+      display: flex;
+      align-items: center;
+      span{
+        color: #097aff;
+      }
+    }
+    .subpageHeader:before{
+      content: '';
+      display: block;
+      margin: 5px;
+      width: 3px;
+      height: 14px;
+      background-image: linear-gradient(0deg, #097aff 0%, #6bccff 100%),
+      linear-gradient(#097aff, #097aff);
+      background-blend-mode: normal, normal;
+    }
+    .commentbox-scroll{
+      height: 590px;
+      overflow-y: auto;
+    }
+    .commentbox-scroll::-webkit-scrollbar {display:none}
+
+    //我的收藏
+    .collectList{
+      width: 100%;
+      padding: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .item{
+        width: 240px;
+        height: 240px;
+        background-color: rgba(256,256,256,.9);
+        box-shadow: 2px 3px 3px 0px rgba(236, 236, 236, 0.75);
+        border-radius: 5px;
+        border: solid 1px #eeeeee;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        position: relative;
+        .itemimg{
+          width: 210px;
+          height: 134px;
+          margin: 0 auto;
+          img {
+            width: 210px;
+            height: 134px;
+          }
+        }
+        .info{
+          color: #1d2b69;
+          .starinfo{
+            align-items: center;
+            justify-content: center;
+          }
+          .name{
+            line-height: 50px;
+            font-size: 16px;
+          }
+        }
+        .state{
+          position: absolute;
+          top: 0;
+          right:0;
+          cursor: pointer;
+          width: 24px;
+          height: 24px;
+          line-height: 24px;
+          text-align: center;
+          background-color: #c9c9c9;
+          border-radius: 0px 5px 0px 5px;
+          color: #ffffff;
+          opacity: 0;
+        }
+        .state:hover{
+          opacity: 1;
+        }
+        .state:active{
+          background-color: #d5b520;
+        }
+
+      }
+    }
+    //我的问卷
+    .questionList{
+      width: 100%;
+      height: 640px;
+      overflow-y: auto;
+      padding: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      .item{
+        width: 248px;
+        height: 290px;
+        background-image: url("//static.iasac.org.cn/ratingPC/images/profile/bg-collect.png");
+        background-repeat: no-repeat;
+        background-size: 248px 290px;
+        padding:20px;
+        margin: 20px;
+        text-align: center;
+        position: relative;
+        color: #1d2b69;
+        font-size: 14px;
+        .itemimg{
+          width: 210px;
+          height: 134px;
+          margin: 0 auto;
+          img{
+            width: 210px;
+            height: 134px;
+          }
+        }
+        .name{
+          font-size: 16px;
+          height: 40px;
+          line-height: 50px;
+        }
+        .date{
+          line-height: 20px;
+          margin-bottom: 35px;
+        }
+        .godetail{
+          width: 74px;
+          height: 22px;
+          line-height: 22px;
+          text-align: center;
+          margin: 0 auto;
+          background-image: linear-gradient(0deg, #fbfbfb 2%, #fff1de 44%, #ffffff 100%),
+          linear-gradient(#cfa972, #cfa972);
+          background-blend-mode: normal, normal;
+          border-radius: 5px;
+          cursor: pointer;
+          color: #392b17;
+        }
+      }
+    }
+    //我的消费
+    .expendList{
+      width: 100%;
+      max-height: 620px;
+      overflow-y: auto;
+      padding:0 20px;
+      .item{
+        width: 1000px;;
+        height: 152px;
+        background-color: rgba(256,256,256,.9);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin:16px auto;
+        .itemimg{
+          width: 160px;
+          height: 102px;
+          img{
+            width: 160px;
+            height: 102px;
+          }
+        }
+        .info{
+          flex: 1;
+          color: #1d2b69;
+          padding: 0 20px;
+          font-size: 14px;
+          .name{
+            font-size: 16px;
+          }
+          .num{
+            margin: 10px 0;
+          }
+          span{
+            color: #d5b520;
+          }
+        }
+        .state{
+          width: 134px;
+          height: 50px;
+          border-radius: 25px;
+          border: solid 2px #d5b520;
+          text-align: center;
+          line-height: 50px;
+          cursor: pointer;
+          color: #d5b520;
+          font-size: 18px;
+        }
+        .state.default{
+          width: 134px;
+          height: 50px;
+          border-radius: 25px;
+          border: solid 2px #839cc6;
+          color: #839cc6;
+        }
+      }
+    }
+    //我的评价
+    .evaluaList{
+      width: 100%;
+      padding:0 20px;
+      .item{
+        width: 100%;;
+        background-color: rgba(256,256,256,.9);
+        border-radius: 5px;
+        padding: 10px;
+        margin:10px auto;
+        font-size: 14px;
+        .commentheader{
+          height: 45px;
+          display: flex;
+          align-items: center;
+          .avatar{
+            width: 45px;
+            height: 45px;
+            border-radius:50%;
+            overflow: hidden;
+            border: 1px solid #868686;
+            img{
+              width: 43px;
+              height: 43px;
+            }
+          }
+          .info{
+            flex: 1;
+            margin: 0 10px;
+            .name{
+              color: #5074af;
+            }
+          }
+        }
+        .textbox{
+          padding:0 60px;
+          line-height: 24px;
+          font-size: 14px;
+          color: #5c5c5c;
+        }
+        .imgbox{
+          padding-left: 60px;
+          display: flex;
+          flex-wrap: wrap;
+          .imgitem{
+            width: 160px;
+            height: 102px;
+            border: 1px solid #e5e5e5;
+            margin: 0 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            img{
+              max-width: 160px;
+              max-height: 102px;
+              height: auto;
+            }
+              
+          }
+        }
+        .date{
+          padding-left: 60px;
+          line-height: 30px;
+          color: #9e9e9e;
+        }
+      }
+    }
+    //我的投诉
+    .complainHeader{
+      width: 100%;
+      height: 90px;
+      background-color: rgba(256,256,256,.8);
+      position: relative;
+      padding-top: 25px;
+      .head-icon{
+        position: absolute;
+        left: 20px;
+        top: 38px;
+        color: #1d2b69;
+        font-size: 14px;
+        height: 15px;
+        display: flex;
+      }
+      .head-icon:before{
+        content: '';
+        display: inline-block;
+        margin-right: 5px;
+        width: 3px;
+        height: 14px;
+        background-image: linear-gradient(0deg, #097aff 0%, #6bccff 100%),
+        linear-gradient(#097aff, #097aff);
+        background-blend-mode: normal, normal;
+      }
+      .complainnav{
+        width: 450px;
+        height: 40px;
+        line-height: 40px;
+        margin:0 auto;
+        text-align: center;
+        border-radius: 19px;
+        border: solid 1px #097aff;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        .item{
+          flex: 1;
+          cursor: pointer;
+          font-size: 16px;
+          color: #097aff;
+          width: 150px;
+          height: 40px;
+          border: solid 1px #097aff;
+        }
+        .item.active{
+          background-color: #097aff;
+          color: #ffffff;
+        }
+      }
+    }
+    .complainList{
+      width: 100%;
+      padding:0 20px;
+      .item2{
+        display: block;
+        width: 1000px;
+        border-radius: 5px;
+        border: solid 1px #eeeeee;
+        background-color: rgba(256,256,256,.9);
+        margin: 20px auto;
+        padding: 10px;
+        .top{
+          display: flex;
+          padding: 0 20px;
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+          color: #1d2b69;
+          font-size: 16px;
+          border-bottom: solid 1px #e5e5e5;
+          span{
+            font-size: 14px;
+            color: #9e9e9e;
+          }
+        }
+        .content{
+          color: #5c5c5c;
+          padding: 10px;
+          line-height: 24px;
+        }
+      }
+    }
+    //投诉详情
+    .detail{
+      background-color: #ffffff;
+      padding:  20px;
+      .item{
+        padding: 20px 0;
+        display: flex;
+        color: #1d2b69;
+        line-height: 40px;
+        border-bottom: 1px solid #eeeeee;
+        .name{
+          width: 100px;
+          color: #5074af;
+          text-align: center;
+        }
+        .value{
+          padding-left: 20px;
+          img{
+            margin: 20px;
+            width: 160px;
+            height: 102px;
+          }
+        }
+      }
+      .btnbox{
+        text-align: center;
+        .desc{
+          color: #1d2b69;
+          line-height: 40px;
+          font-size: 18px;
+        }
+        .date{
+          color: #5074af;
+          margin-bottom: 30px;
+        }
+        .btn-box{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .btn{
+            width: 136px;
+            height: 38px;
+            line-height: 38px;
+            margin: 0 20px;
+            border: solid 1px #0b7cff;
+            cursor: pointer;
+          }
+          .btn-no{
+            color: #097aff;
+          }
+          .btn-yes{
+            color: #ffffff;
+            background-image: linear-gradient(0deg,#007bff 0%,#00d8f1 100%),
+            linear-gradient(#ffffff,#ffffff);
+          }
+          .btn-defult{
+            color: #097aff;
+          }
+        }
+      }
+    }
+    //我的积分
+    .scroeList{
+      width: 1000px;
+      max-height: 580px;
+      margin:16px auto;
+      border-radius: 5px ;
+      padding: 20px 0;
+      overflow-y: auto;
+      background-color: #f2f2f2;
+      .item2{
+        .match_date{
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          background-color: #ffffff;
+          box-shadow: 1px 2px 5px 0px
+          rgba(138, 138, 138, 0.75);
+          color: #1d2b69;
+        }
+        .recorditem{
+          background-color: rgba(256,256,256,.9);
+          height: 50px;
+          padding: 0 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 14px;
+          .item{
+            flex: 1;
+          }
+          .date{
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .expendList::-webkit-scrollbar,.scroeList::-webkit-scrollbar,.questionList::-webkit-scrollbar{display: none}
+    .nodate{
+      width: 100%;
+      line-height: 100px;
+      font-size: 18px;
+      color: #868686;
+      text-align: center;
+    }
+  }
+}
